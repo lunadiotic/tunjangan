@@ -58,6 +58,18 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                            <div class="col-xs-12">
+                                <input id="username" type="text" class="form-control" name="username" placeholder="Email" value="{{ old('username') }}" required>
+
+                                @if ($errors->has('username'))
+                                    <span class="help-block">
+                                    <strong>{{ $errors->first('username') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <div class="col-xs-12">
                                 <input id="email" type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}" required>
