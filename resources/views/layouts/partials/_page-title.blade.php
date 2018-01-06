@@ -8,7 +8,7 @@
             </a>
         </div>
 
-        <h4 class="page-title">{{ empty($data['page-title']) ? 'Blank Page' : $data['page-title']  }}</h4>
+        <h4 class="page-title">{{ empty($data['page-title']) ? 'Dashboard' : $data['page-title']  }}</h4>
         <ol class="breadcrumb">
             <li>
                 <a href="#">{{ empty($data['menu']) ? 'Menu' : $data['menu']  }}</a>
@@ -17,7 +17,7 @@
                 <a href="#">{{ empty($data['submenu']) ? 'Sub-Menu' : $data['submenu']  }}</a>
             </li>
             <li class="active">
-                {{ empty($data['active']) ? 'Blank Page' : $data['active']  }}
+                {{ empty($data['active']) ? 'Dashboard' : $data['active']  }}
             </li>
         </ol>
     </div>

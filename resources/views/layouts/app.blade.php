@@ -13,12 +13,20 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <!-- DataTables -->
+        <link href="{{ asset('assets/plugins/datatables/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css"/>
+
+        <!-- Sweet Alert -->
+        <link href="{{ asset('assets/plugins/sweet-alert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
+
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/core.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/components.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/pages.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" type="text/css" />
+
+        @yield('styles')
 
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -56,6 +64,8 @@
                         <!-- Page-Title -->
                         @include('layouts.partials._page-title')
 
+                        @yield('content')
+
                     </div> <!-- container -->
                      
                 </div> <!-- content -->
@@ -86,9 +96,41 @@
         <script src="{{ asset('assets/js/wow.min.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.nicescroll.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.scrollTo.min.js') }}"></script>
+
+        <!-- Datatables -->
+        <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/datatables/dataTables.bootstrap.js') }}"></script>
+
+        <!-- Sweet-Alert 2 -->
+        <script src="{{ asset('assets/plugins/sweet-alert2/sweetalert2.min.js') }}"></script>
+        <script src="{{ asset('assets/pages/jquery.sweet-alert2.init.js') }}"></script>
         
         <script src="{{ asset('assets/js/jquery.core.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.app.js') }}"></script>
+
+        @yield('scripts')
+        <script src="{{ asset('js/app.js') }}"></script>
+        
+        @if (notify()->ready())
+            <script>
+                $(document).ready(function(){
+                    swal({
+                        title: "{!! notify()->message() !!}",
+                        text: "{!! notify()->option('text') !!}",
+                        type: "{{ notify()->type() }}",
+                        timer: "{!! notify()->option('timer') !!}"
+                    }).then(
+                        function () {},
+                        // handling the promise rejection
+                        function (dismiss) {
+                            if (dismiss === 'timer') {
+                                console.log('I was closed by the timer')
+                            }
+                        }
+                    )
+                });
+            </script>
+        @endif
     
     </body>
 </html>

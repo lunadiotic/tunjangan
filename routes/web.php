@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/user', 'UserController');
+
+Route::group(['prefix' => 'data'], function () {
+	Route::get('user', 'UserController@dataUser')->name('data.user');
+});
