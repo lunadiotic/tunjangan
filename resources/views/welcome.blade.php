@@ -92,8 +92,8 @@
                 <div class="row">
                     <div class="col-sm-12 text-center">
                         <div class="home-wrapper">
-                            <h1 class="icon-main text-custom"><img src="{{ asset('assets/images/logo.png') }}" alt="Logo"></i></h1>
-                            <h1 class="home-text"><span class="rotate">Welcome, Getting Started, Ready?</span></h1>
+                            <h1 class="icon-main text-custom"><img src="{{ asset('assets/images/logo.png') }}" height="250" alt="Logo"></i></h1>
+                            <h1 class="home-text"><span class="rotate">Selamat Datang, Aplikasi Polres, Siap?</span></h1>
 
                         </div>
                     </div>

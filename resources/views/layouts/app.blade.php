@@ -74,7 +74,7 @@
                 </div> <!-- content -->
 
                 <footer class="footer">
-                    © 2017. All rights reserved.
+                    © 2018. <a href="https://fb.me/hakim.816">WeeeWork</a>.
                 </footer>
             </div>
             <!-- ============================================================== -->
