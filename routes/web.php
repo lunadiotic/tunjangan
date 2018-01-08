@@ -20,7 +20,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/user', 'UserController');
+Route::resource('/pangkat', 'PangkatController');
+Route::resource('/jabatan', 'JabatanController');
+Route::resource('/tunjangan', 'TunjanganController');
+Route::resource('/anggota', 'AnggotaController');
+Route::get('/setting', 'SettingController@index')->name('setting.index');
+Route::post('/setting', 'SettingController@store')->name('setting.store');
 
 Route::group(['prefix' => 'data'], function () {
 	Route::get('user', 'UserController@dataUser')->name('data.user');
+	Route::get('pangkat', 'PangkatController@dataPangkat')->name('data.pangkat');
+	Route::get('jabatan', 'JabatanController@dataJabatan')->name('data.jabatan');
+	Route::get('tunjangan', 'TunjanganController@dataTunjangan')->name('data.tunjangan');
+	Route::get('anggota', 'AnggotaController@dataAnggota')->name('data.anggota');
 });

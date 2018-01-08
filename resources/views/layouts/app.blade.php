@@ -19,6 +19,9 @@
         <!-- Sweet Alert -->
         <link href="{{ asset('assets/plugins/sweet-alert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
 
+        <!-- DatePicker -->
+        <link href="{{ asset('assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/core.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/components.css') }}" rel="stylesheet" type="text/css" />
@@ -104,6 +107,19 @@
         <!-- Sweet-Alert 2 -->
         <script src="{{ asset('assets/plugins/sweet-alert2/sweetalert2.min.js') }}"></script>
         <script src="{{ asset('assets/pages/jquery.sweet-alert2.init.js') }}"></script>
+
+        <!-- Datepicker -->
+        <script src="{{ asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+
+                // Date Picker
+                jQuery('.datepicker').datepicker({
+                    format: "dd/mm/yyyy"
+                });
+
+            });
+        </script>
         
         <script src="{{ asset('assets/js/jquery.core.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.app.js') }}"></script>
