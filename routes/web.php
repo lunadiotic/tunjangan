@@ -26,6 +26,11 @@ Route::resource('/tunjangan', 'TunjanganController');
 Route::resource('/anggota', 'AnggotaController');
 Route::get('/setting', 'SettingController@index')->name('setting.index');
 Route::post('/setting', 'SettingController@store')->name('setting.store');
+Route::get('/remun', 'RemunController@selectDate')->name('remun.selectdate');
+Route::post('/remun', 'RemunController@selectDatePost');
+Route::get('/remun/{tanggal}', 'RemunController@showList')->name('remun.list');
+Route::get('/remun/set/{id}/{tanggal}', 'RemunController@setRemun')->name('remun.set');
+Route::post('/remun/set', 'RemunController@setRemunPost')->name('remun.set.post');
 
 Route::group(['prefix' => 'data'], function () {
 	Route::get('user', 'UserController@dataUser')->name('data.user');

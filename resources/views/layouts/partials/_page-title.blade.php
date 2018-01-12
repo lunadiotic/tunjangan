@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="btn-group pull-right m-t-15">
-            <a href="{{ empty($data['0']) ? url()->previous() : $data['0']  }}">
+            <a href="{{ url()->previous() }}">
                 <button type="button" class="btn btn-default waves-effect waves-light">
                     Back <span class="m-l-5"><i class="fa fa-arrow-left"></i></span>
                 </button>

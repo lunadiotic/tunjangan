@@ -37,4 +37,12 @@ class Anggota extends Model
     {
         return $this->belongsTo(Jabatan::class);
     }
+
+    /**
+     * Relasi dengan Remun Model
+     */
+    public function remun()
+    {
+        return $this->hasMany(Remun::class);
+    }
 }
