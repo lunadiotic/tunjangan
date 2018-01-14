@@ -31,6 +31,8 @@ Route::post('/remun', 'RemunController@selectDatePost');
 Route::get('/remun/{tanggal}', 'RemunController@showList')->name('remun.list');
 Route::get('/remun/set/{id}/{tanggal}', 'RemunController@setRemun')->name('remun.set');
 Route::post('/remun/set', 'RemunController@setRemunPost')->name('remun.set.post');
+Route::get('/remun/laporan/date', 'RemunController@getLaporan')->name('remun.laporan');
+Route::post('/remun/laporan/print', 'RemunController@getLaporanPrint')->name('remun.laporan.print');
 
 Route::group(['prefix' => 'data'], function () {
 	Route::get('user', 'UserController@dataUser')->name('data.user');

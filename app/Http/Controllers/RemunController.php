@@ -56,4 +56,35 @@ class RemunController extends Controller
         Remun::create($request->all());
         return $this->showList($request->tanggal_remun);
     }
+
+    public function getLaporan()
+    {
+        return view('pages.remun.laporan');
+    }
+
+    public function getLaporanPrint(Request $request)
+    {
+        $tanggalAwal = $request['tanggal_awal'] = date('Y-m-d', strtotime(str_replace('/', '-', $request->tanggal_awal)));
+        $tanggalAkhir = $request['tanggal_akhir'] = date('Y-m-d', strtotime(str_replace('/', '-', $request->tanggal_akhir)));
+        $data = [];
+        $remun = Remun::whereBetween('tanggal_remun', [$tanggalAwal,$tanggalAkhir])->get();
+        $total_remun = 0 ;
+        $no = 1;
+
+        foreach ($remun as $row) {
+            $data[] = [
+                'no' => $no++,
+                'id' => $row->id,
+                'no_anggota' => $row->anggota->no_anggota,
+                'nama' => $row->anggota->nama,
+                'pangkat_jabatan' => $row->anggota->pangkat->kode.'/'.$row->anggota->jabatan->kode,
+                'hadir' => $row->hadir,
+                'tidak_hadir' => $row->tidak_hadir,
+                'total_remun' => $row->total_remun
+            ];
+            $total_remun += $row->total_remun;
+        }
+
+        return view('pages.remun.print', compact('data', 'total_remun', 'tanggalAwal', 'tanggalAkhir'));
+    }
 }

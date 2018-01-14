@@ -32,6 +32,7 @@
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-settings"></i><span> Transaksi </span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{ route('remun.selectdate') }}"> Remunerasi</a></li>
+                        <li><a href="{{ route('remun.laporan') }}"> Laporan</a></li>
                     </ul>
                 </li>
 
