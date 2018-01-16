@@ -6,6 +6,7 @@
 
             <li class="text-muted menu-title">Navigation</li>
 
+                @if (Auth::user()->role == 'admin')
                 <li>
                     <a href="{{ route('home') }}" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> <span class="menu-arrow"></span></a>
                 </li>
@@ -35,6 +36,14 @@
                         <li><a href="{{ route('remun.laporan') }}"> Laporan</a></li>
                     </ul>
                 </li>
+                @else
+                <li>
+                    <a href="{{ route('home') }}" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> <span class="menu-arrow"></span></a>
+                </li>
+                <li>
+                    <a href="{{ route('remun.laporan') }}" class="waves-effect"><i class="ti-settings"></i> <span> Laporan </span> <span class="menu-arrow"></span></a>
+                </li>
+                @endif
 
           </ul>
           <div class="clearfix"></div>

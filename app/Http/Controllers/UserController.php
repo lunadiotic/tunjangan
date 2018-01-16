@@ -25,8 +25,8 @@ class UserController extends Controller
     public function create()
     {
         $role = [
-            'admin' => 'Admin',
-            'user' => 'User'
+            'admin' => 'Bamin',
+            'user' => 'Anggota'
         ];
         return view('pages.user.create', compact('role'));
     }
@@ -81,8 +81,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $role = [
-            'admin' => 'Admin',
-            'user' => 'User'
+            'admin' => 'Bamin',
+            'user' => 'Anggota'
         ];
         $user = User::findOrFail($id);
         return view('pages.user.edit', compact('role', 'user'));
@@ -148,6 +148,9 @@ class UserController extends Controller
     {
         $user = User::query();
         return Datatables::of($user)
+            ->addColumn('role', function ($user) {
+                return $user->role == 'admin' ? 'Bamin' : 'Anggota';
+            })
             ->addColumn('action', function ($user) {
             return view('layouts.partials._action', [
                 'model' => $user->id,
