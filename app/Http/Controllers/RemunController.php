@@ -80,6 +80,7 @@ class RemunController extends Controller
                 'pangkat_jabatan' => $row->anggota->pangkat->kode.'/'.$row->anggota->jabatan->kode,
                 'hadir' => $row->hadir,
                 'tidak_hadir' => $row->tidak_hadir,
+                'tunjangan' => $row->tunjangan,
                 'total_remun' => $row->total_remun
             ];
             $total_remun += $row->total_remun;
