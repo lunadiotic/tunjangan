@@ -33,6 +33,8 @@ Route::get('/remun/set/{id}/{tanggal}', 'RemunController@setRemun')->name('remun
 Route::post('/remun/set', 'RemunController@setRemunPost')->name('remun.set.post');
 Route::get('/remun/laporan/date', 'RemunController@getLaporan')->name('remun.laporan');
 Route::post('/remun/laporan/print', 'RemunController@getLaporanPrint')->name('remun.laporan.print');
+Route::get('/remun/laporan/month', 'RemunController@getLaporanMonth')->name('remun.laporan.month');
+Route::post('/remun/laporan/print/month', 'RemunController@getLaporanPrintMonth')->name('remun.laporan.print.month');
 
 Route::group(['prefix' => 'data'], function () {
 	Route::get('user', 'UserController@dataUser')->name('data.user');

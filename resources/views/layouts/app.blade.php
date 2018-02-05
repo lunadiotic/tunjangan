@@ -118,6 +118,17 @@
                     format: "dd/mm/yyyy"
                 });
 
+                // Year Picker
+                jQuery('#yearpicker').datepicker({
+                    minViewMode: 2,
+                    format: "yyyy"
+                });
+                // Month Picker
+                jQuery('#monthpicker').datepicker({
+                    minViewMode: 1,
+                    format: "mm"
+                });
+
             });
         </script>
         

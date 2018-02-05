@@ -88,4 +88,39 @@ class RemunController extends Controller
 
         return view('pages.remun.print', compact('data', 'total_remun', 'tanggalAwal', 'tanggalAkhir'));
     }
+
+    public function getLaporanMonth()
+    {
+        return view('pages.remun.laporan-month');
+    }
+
+    public function getLaporanPrintMonth(Request $request)
+    {
+        $bulan = $request->bulan;
+        $tahun = $request->tahun;
+        $data = [];
+        $remun = Remun::whereMonth('tanggal_remun', '=', $bulan)
+                        ->whereYear('tanggal_remun', '=', $tahun)->get();
+        $total_remun = 0 ;
+        $no = 1;
+
+        foreach ($remun as $row) {
+            $data[] = [
+                'no' => $no++,
+                'id' => $row->id,
+                'no_anggota' => $row->anggota->no_anggota,
+                'nama' => $row->anggota->nama,
+                'pangkat_jabatan' => $row->anggota->pangkat->kode.'/'.$row->anggota->jabatan->kode,
+                'hadir' => $row->hadir,
+                'tidak_hadir' => $row->tidak_hadir,
+                'tunjangan' => $row->tunjangan,
+                'total_remun' => $row->total_remun
+            ];
+            $total_remun += $row->total_remun;
+        }
+
+        // return $data;
+
+        return view('pages.remun.print-month', compact('data', 'total_remun', 'bulan', 'tahun'));
+    }
 }
