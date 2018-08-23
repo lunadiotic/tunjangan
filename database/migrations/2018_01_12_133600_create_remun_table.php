@@ -16,7 +16,6 @@ class CreateRemunTable extends Migration
         Schema::create('remun', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('anggota_id')->unsigned();
-            $table->integer('hadir');
             $table->integer('tidak_hadir');
             $table->integer('remun');
             $table->integer('pinalti');

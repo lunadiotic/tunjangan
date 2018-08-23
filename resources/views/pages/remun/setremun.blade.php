@@ -61,12 +61,6 @@
                                         <td>{{ $anggota->jabatan->jabatan }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Hadir</th>
-                                        <td>
-                                            <input type="text" name="hadir" class="form-control input-sm" required>
-                                        </td>
-                                    </tr>
-                                    <tr>
                                         <th>Tidak Hadir</th>
                                         <td>
                                             <input type="text" name="tidak_hadir" id="tidak_hadir" class="form-control input-sm" onchange="calcRemun()" required>
