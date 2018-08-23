@@ -87,7 +87,6 @@
                                                             <th>No Anggota</th>
                                                             <th>Nama</th>
                                                             <th>Pangkat/Jabatan</th>
-                                                            <th>Hadir</th>
                                                             <th>Tidak Hadir</th>
                                                             <th>Tunjangan</th>
                                                             <th>Total Remun</th>
@@ -99,7 +98,6 @@
                                                                 <td>{{ $row['no_anggota'] }}</td>
                                                                 <td>{{ $row['nama'] }}</td>
                                                                 <td>{{ $row['pangkat_jabatan'] }}</td>
-                                                                <td>{{ $row['hadir'] }}</td>
                                                                 <td>{{ $row['tidak_hadir'] }}</td>
                                                                 <td>{{ number_format($row['tunjangan']) }}</td>
                                                                 <td>{{ number_format($row['total_remun'] ) }}</td>
